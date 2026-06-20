@@ -1,147 +1,175 @@
-# Child Abuse Meme Detection Using CLIP, ResNet50, and VGG16 in Zero-Shot, One-Shot, and Few-Shot Learning
+# Child Abuse Meme Detection using CLIP, ResNet50, and VGG16
 
-## Introduction
+## Overview
 
-The rapid growth of social media platforms has led to an increase in the circulation of harmful and abusive content in the form of memes. Memes combine visual and textual elements, making them an effective medium for spreading harmful messages. Among such content, child abuse-related memes are particularly concerning due to their potential psychological, social, and ethical impacts.
+This project focuses on the detection of **child abuse-related harmful memes** using deep learning and vision-language models. Child abuse content can be harmful, distressing, and potentially dangerous, making its identification important for content moderation and online safety.
 
-Traditional content moderation approaches often require large amounts of labeled data, which may not always be available for sensitive domains. Therefore, this project investigates the use of Zero-Shot, One-Shot, and Few-Shot learning techniques for detecting harmful child abuse memes using state-of-the-art computer vision and vision-language models.
+The project investigates the effectiveness of:
+
+- CLIP (Contrastive Language–Image Pretraining)
+- ResNet50
+- VGG16
+
+under:
+
+- Zero-Shot Learning
+- One-Shot Learning
+- Few-Shot Learning
+
+to determine how well these models can classify harmful content when limited labeled data is available.
 
 ---
 
 ## Motivation
 
-Detecting harmful child abuse memes is challenging because:
+The increasing use of memes on social media platforms has made harmful content more difficult to identify using traditional moderation techniques. Child abuse-related memes may normalize, glorify, or trivialize abusive behavior and can have serious social consequences.
 
-- Limited labeled datasets are available.
-- Harmful content can be expressed through subtle visual cues.
-- Manual moderation is time-consuming and expensive.
-- Early detection can help prevent the spread of harmful content.
-- Modern platforms require scalable and automated moderation systems.
+Challenges include:
 
-This project explores whether powerful pre-trained models can effectively detect harmful memes even when very little training data is available.
+- Limited availability of labeled datasets
+- High annotation cost
+- Sensitive nature of the content
+- Need for scalable moderation systems
+- Difficulty in detecting subtle visual cues
+
+This project explores whether powerful pre-trained models can effectively detect harmful memes in low-data scenarios.
 
 ---
 
 ## Objectives
 
 - Detect child abuse-related harmful memes.
-- Compare traditional CNN models and vision-language models.
-- Evaluate model performance under limited-data conditions.
-- Analyze the effectiveness of Zero-Shot, One-Shot, and Few-Shot learning.
-- Provide insights for future content moderation systems.
+- Evaluate the effectiveness of CLIP, ResNet50, and VGG16.
+- Explore Zero-Shot, One-Shot, and Few-Shot learning approaches.
+- Analyze model performance under limited-data conditions.
+- Support research in automated harmful content moderation.
+
+---
+
+## Self-Curated Dataset
+
+A self-curated dataset was developed specifically for this project.
+
+### Dataset Collection
+
+- Memes were collected from publicly available online sources.
+- Images were manually reviewed and filtered.
+- Samples were categorized according to their content.
+- Dataset quality was maintained through manual verification.
+
+### Classes
+
+#### Harmful Child Abuse Memes
+
+Memes containing content that promotes, glorifies, normalizes, trivializes, or encourages child abuse-related behavior.
+
+#### Non-Harmful Memes
+
+Memes that do not contain child abuse-related harmful content and serve as negative examples.
+
+### Annotation Process
+
+- Images were manually labeled.
+- Labels were reviewed for consistency.
+- Ambiguous samples were re-evaluated before inclusion.
+
+### Dataset Characteristics
+
+- Binary classification dataset
+- Image-based meme collection
+- Designed for low-data learning experiments
+- Suitable for Zero-Shot, One-Shot, and Few-Shot evaluation
+
+### Importance of the Dataset
+
+Publicly available datasets for child abuse meme detection are extremely limited. Therefore, a self-curated dataset was developed to facilitate research in harmful content detection and online safety.
 
 ---
 
 ## Project Workflow
 
+```text
 Dataset Collection
-↓
+        ↓
+Data Annotation
+        ↓
 Data Preprocessing
-↓
+        ↓
 Feature Extraction
-↓
+        ↓
 Model Implementation
-(CLIP / ResNet50 / VGG16)
-↓
+(CLIP, ResNet50, VGG16)
+        ↓
 Zero-Shot Learning
 One-Shot Learning
 Few-Shot Learning
-↓
+        ↓
 Model Evaluation
-↓
-Comparative Analysis
-
----
-
-## Dataset
-
-The dataset contains two classes:
-
-### Harmful Memes
-Memes containing content that promotes, glorifies, normalizes, or trivializes child abuse.
-
-### Non-Harmful Memes
-Memes that do not contain child abuse-related harmful content.
-
-### Dataset Structure
-
-```
-dataset/
-│
-├── harmful/
-│   ├── image1.jpg
-│   ├── image2.jpg
-│   └── ...
-│
-└── non_harmful/
-    ├── image1.jpg
-    ├── image2.jpg
-    └── ...
+        ↓
+Performance Analysis
 ```
 
 ---
 
 ## Data Preprocessing
 
-The following preprocessing steps were applied:
+The following preprocessing techniques were applied:
 
 - Image resizing
-- Pixel normalization
+- Image normalization
 - Data cleaning
-- Removal of corrupted images
-- Train/Test split preparation
+- Removal of corrupted samples
 - Label encoding
+- Dataset organization
 
-### Image Transformations
+### Transformations
 
-- Resize to model input size
-- Tensor conversion
-- Mean-Std normalization
+- Resize images to model input dimensions
+- Convert images to tensors
+- Normalize pixel values
 
 ---
 
 ## Models Used
 
-### 1. CLIP (Contrastive Language-Image Pretraining)
+### CLIP
 
-CLIP is a multimodal vision-language model developed by OpenAI.
+CLIP (Contrastive Language–Image Pretraining) is a vision-language model that learns relationships between images and text.
 
-#### Key Features
+#### Features
 
-- Learns image-text relationships.
-- Enables classification using text prompts.
-- Performs well without task-specific training.
-- Highly effective for Zero-Shot Learning.
+- Uses image-text alignment
+- Supports Zero-Shot classification
+- Requires minimal task-specific training
+- Learns generalized visual representations
 
 #### Why CLIP?
 
-Since harmful meme datasets are often limited, CLIP's pre-trained knowledge can help classify images without extensive training data.
+CLIP can classify images using natural language prompts, making it highly suitable for scenarios with little or no labeled data.
 
 ---
 
-### 2. ResNet50
+### ResNet50
 
-ResNet50 is a deep Convolutional Neural Network containing 50 layers with residual connections.
+ResNet50 is a deep convolutional neural network containing residual connections that allow effective training of deep architectures.
 
-#### Advantages
+#### Features
 
-- Handles deep architectures effectively.
-- Learns strong image representations.
-- Widely used benchmark model.
-- Suitable for transfer learning.
+- Deep feature extraction
+- Strong transfer learning performance
+- Robust image representation learning
 
 ---
 
-### 3. VGG16
+### VGG16
 
-VGG16 is a classical CNN architecture containing 16 learnable layers.
+VGG16 is a classical convolutional neural network architecture widely used for image classification tasks.
 
-#### Advantages
+#### Features
 
-- Simple architecture.
-- Effective feature extraction.
-- Strong baseline model.
-- Easy to fine-tune.
+- Simple architecture
+- Effective feature extraction
+- Strong baseline performance
 
 ---
 
@@ -149,66 +177,57 @@ VGG16 is a classical CNN architecture containing 16 learnable layers.
 
 ### Zero-Shot Learning
 
-#### Definition
+Zero-Shot Learning allows a model to classify data without seeing any task-specific training examples.
 
-The model predicts classes without seeing any labeled examples during training.
+#### CLIP Implementation
 
-#### Implementation
+Example prompts:
 
-For CLIP:
+- "A harmful child abuse meme"
+- "A non-harmful meme"
 
-- Generate text prompts such as:
-  - "A harmful child abuse meme"
-  - "A non-harmful meme"
-
-- Compare image embeddings with text embeddings.
-
-- Assign the class with highest similarity score.
+The image embedding is compared against text embeddings, and the class with the highest similarity score is selected.
 
 #### Benefits
 
-- No training required.
-- Useful when labeled data is unavailable.
+- No training required
+- Useful when labeled data is unavailable
 
 ---
 
 ### One-Shot Learning
 
-#### Definition
+One-Shot Learning uses a single labeled example per class.
 
-The model learns from only one example per class.
+#### Method
 
-#### Implementation
-
-- Select one labeled image from each class.
-- Extract image embeddings.
-- Compare test samples with support examples.
-- Assign nearest class.
+- Select one support image per class.
+- Extract feature embeddings.
+- Compare test samples with support samples.
+- Assign the nearest class.
 
 #### Benefits
 
-- Requires minimal annotation effort.
-- Suitable for rare classes.
+- Minimal annotation effort
+- Suitable for rare classes
 
 ---
 
 ### Few-Shot Learning
 
-#### Definition
+Few-Shot Learning uses a small number of labeled examples per class.
 
-The model learns from a small number of labeled examples per class.
-
-#### Implementation
+#### Method
 
 - Use multiple support examples.
 - Extract embeddings.
-- Build class prototypes.
-- Perform similarity-based classification.
+- Create class prototypes.
+- Classify based on similarity.
 
 #### Benefits
 
-- Improved performance compared to One-Shot Learning.
-- Effective in low-resource environments.
+- Better performance than One-Shot Learning
+- Effective in low-resource environments
 
 ---
 
@@ -217,8 +236,8 @@ The model learns from a small number of labeled examples per class.
 ### Phase 1: Data Preparation
 
 - Load dataset
-- Organize class labels
-- Apply image transformations
+- Organize classes
+- Apply preprocessing transformations
 
 ### Phase 2: Feature Extraction
 
@@ -231,8 +250,8 @@ The model learns from a small number of labeled examples per class.
 
 #### ResNet50
 
-- Remove classification head
-- Extract feature vectors
+- Remove classification layer
+- Extract visual feature vectors
 
 #### VGG16
 
@@ -241,44 +260,47 @@ The model learns from a small number of labeled examples per class.
 
 ### Phase 3: Classification
 
-#### Zero-Shot
+#### Zero-Shot Pipeline
 
-Image → CLIP Embedding
-↓
-Compare with Text Embeddings
-↓
+```text
+Image
+  ↓
+CLIP Encoder
+  ↓
+Text Prompt Matching
+  ↓
 Prediction
+```
 
-#### One-Shot
+#### One-Shot Pipeline
 
+```text
 Support Image
-↓
+     ↓
 Feature Extraction
-↓
+     ↓
 Similarity Matching
-↓
+     ↓
 Prediction
+```
 
-#### Few-Shot
+#### Few-Shot Pipeline
 
+```text
 Support Set
-↓
+     ↓
 Feature Extraction
-↓
-Prototype Generation
-↓
+     ↓
+Prototype Creation
+     ↓
 Similarity Matching
-↓
+     ↓
 Prediction
+```
 
 ### Phase 4: Evaluation
 
-Evaluate all models using:
-
-- Accuracy
-- Precision
-- Recall
-- F1-score
+Model performance is evaluated using standard classification metrics.
 
 ---
 
@@ -286,39 +308,39 @@ Evaluate all models using:
 
 ### Accuracy
 
-Measures overall correctness.
+Measures overall prediction correctness.
 
+```text
 Accuracy = Correct Predictions / Total Predictions
+```
 
 ### Precision
 
 Measures prediction quality.
 
+```text
 Precision = TP / (TP + FP)
+```
 
 ### Recall
 
-Measures detection capability.
+Measures the ability to identify harmful memes.
 
+```text
 Recall = TP / (TP + FN)
+```
 
-### F1 Score
+### F1-Score
 
 Balances Precision and Recall.
 
+```text
 F1 = 2 × (Precision × Recall) / (Precision + Recall)
+```
 
 ---
 
-## Experimental Setup
-
-### Hardware
-
-- CPU/GPU
-- RAM
-- Storage
-
-### Software
+## Technologies Used
 
 - Python
 - PyTorch
@@ -330,25 +352,13 @@ F1 = 2 × (Precision × Recall) / (Precision + Recall)
 
 ---
 
-## Comparative Analysis
-
-| Model | Zero-Shot | One-Shot | Few-Shot |
-|---------|---------|---------|---------|
-| CLIP | ✓ | ✓ | ✓ |
-| ResNet50 | ✗ | ✓ | ✓ |
-| VGG16 | ✗ | ✓ | ✓ |
-
-CLIP naturally supports Zero-Shot classification through text-image alignment, whereas ResNet50 and VGG16 require support examples for One-Shot and Few-Shot learning.
-
----
-
 ## Applications
 
 - Social media moderation
 - Harmful content detection
-- Online child safety
-- AI-assisted moderation systems
-- Digital platform governance
+- Online child safety systems
+- AI-assisted moderation
+- Content filtering platforms
 
 ---
 
@@ -356,34 +366,40 @@ CLIP naturally supports Zero-Shot classification through text-image alignment, w
 
 - Limited labeled data
 - Sensitive content handling
-- Dataset imbalance
+- Class imbalance
 - Visual ambiguity in memes
-- Ethical concerns
+- Ethical and legal concerns
 
 ---
 
 ## Ethical Considerations
 
-This project is intended solely for research and content moderation purposes.
+This project is intended exclusively for research and educational purposes related to content moderation and online safety.
 
-- Child abuse content can be disturbing.
-- Predictions should not be used as the sole basis for moderation decisions.
-- Human review remains essential.
-- Data should be handled according to ethical and legal guidelines.
+- Child abuse content can be emotionally distressing.
+- The system is designed to assist moderation efforts.
+- Human oversight remains necessary for sensitive decisions.
+- Data should be handled responsibly and ethically.
 
 ---
 
 ## Future Work
 
-- Incorporate OCR for meme text extraction.
-- Multimodal image-text fusion.
-- Vision Transformers (ViT).
-- Explainable AI methods.
-- Larger benchmark datasets.
-- Real-time moderation systems.
+- OCR-based text extraction from memes
+- Multimodal image-text fusion
+- Vision Transformer (ViT) architectures
+- Explainable AI techniques
+- Larger benchmark datasets
+- Real-time moderation systems
+
+---
+
+## Disclaimer
+
+This project focuses on the detection of child abuse-related harmful memes for research, safety, and moderation purposes. The inclusion of such content does not imply endorsement, promotion, or support of abusive behavior. The objective is to develop automated systems that assist in identifying and reducing the spread of harmful online content.
 
 ---
 
 ## Conclusion
 
-This project investigates the effectiveness of CLIP, ResNet50, and VGG16 for detecting harmful child abuse memes under Zero-Shot, One-Shot, and Few-Shot learning settings. The study demonstrates how pre-trained vision-language and convolutional neural network models can assist content moderation systems when labeled data is scarce, contributing toward safer online environments and improved automated harmful content detection.
+This project investigates the effectiveness of CLIP, ResNet50, and VGG16 for detecting child abuse-related harmful memes under Zero-Shot, One-Shot, and Few-Shot learning settings. By leveraging pre-trained vision-language and convolutional neural network models, the study demonstrates approaches for harmful content detection in scenarios where labeled data is limited, contributing to safer online environments and more effective content moderation systems.
