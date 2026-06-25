@@ -2,48 +2,64 @@
 
 ## Overview
 
+This project presents a multimodal approach for detecting **child abuse-related harmful memes** using deep learning and vision-language models. Harmful memes often combine visual and textual content to convey abusive or inappropriate messages, making their automatic detection a challenging task. Accurate identification of such content is essential for improving online safety, supporting content moderation systems, and reducing the spread of harmful material across digital platforms.
 
-This project focuses on the detection of **child abuse-related harmful memes** using deep learning and vision-language models. Child abuse content can be harmful, distressing, and potentially dangerous, making its identification important for content moderation and online safety.
+The project evaluates the performance of three widely used models:
 
-### Model Downloads
+* **CLIP (Contrastive Language–Image Pretraining)**
+* **ResNet50**
+* **VGG16**
 
-Pre-trained model weights and checkpoints used in this project can be downloaded from the Google Drive folder below:
+under different low-data learning scenarios, including:
 
-🔗 **Google Drive Folder:**
+* **Zero-Shot Learning**
+* **One-Shot Learning**
+* **Few-Shot Learning**
+
+The objective is to analyze how effectively these models can identify harmful memes when only limited labeled training data is available.
+
+---
+
+## Pre-trained Model Downloads
+
+Due to GitHub's file size limitations, the trained model weights and checkpoints are hosted on Google Drive.
+
+### Google Drive
+
+🔗 **Download Link:**
 https://drive.google.com/drive/folders/18FIXofA1L10hrVY9xccZy4CuDgqCPrh6
 
 The folder contains:
 
-* **CLIP Model Weights**
-* **ResNet50 Model Weights**
-* **VGG16 Model Weights**
-* Supporting model files and checkpoints
+* CLIP model weights
+* ResNet50 model weights
+* VGG16 model weights
+* Supporting checkpoints and configuration files
 
-> Note: Due to GitHub file size limitations, trained model weights are hosted on Google Drive instead of being stored directly in the repository.
+> **Note:** Please download the required model files before running the notebooks or evaluation scripts.
 
-### Download Instructions
+---
+
+## Download Instructions
 
 1. Open the Google Drive folder.
-2. Download the required model ZIP file:
+2. Download the required model archive:
 
    * CLIP
    * ResNet50
    * VGG16
 3. Extract the downloaded archive.
-4. Place the model files in the appropriate project directory before running the notebooks.
+4. Place the extracted model files in the appropriate project directories.
+5. Run the corresponding notebooks or scripts for training or evaluation.
 
 ---
 
-The project investigates the effectiveness of:
+## Project Objectives
 
-* CLIP (Contrastive Language–Image Pretraining)
-* ResNet50
-* VGG16
+The primary objectives of this project are to:
 
-under:
-
-* Zero-Shot Learning
-* One-Shot Learning
-* Few-Shot Learning
-
-to determine how well these models can classify harmful content when limited labeled data is available.
+* Detect child abuse-related harmful memes using deep learning models.
+* Compare the performance of CNN-based and vision-language models.
+* Evaluate model effectiveness under Zero-Shot, One-Shot, and Few-Shot learning settings.
+* Analyze the impact of limited labeled data on harmful meme detection.
+* Provide a benchmark for future research in multimodal harmful content detection.
