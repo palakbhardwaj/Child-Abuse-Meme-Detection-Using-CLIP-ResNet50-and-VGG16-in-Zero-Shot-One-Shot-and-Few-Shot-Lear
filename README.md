@@ -243,7 +243,7 @@ This project compares both paradigms under limited-data settings to understand t
 
 **Palak Bhardwaj**
 
-📧 bhardwahpalak777@gmail.com
+📧 bhardwajpalak777@gmail.com
 
 Feel free to open an Issue or contact me regarding the project.
 
