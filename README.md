@@ -1,73 +1,137 @@
-# Child Abuse Meme Detection using CLIP, ResNet50, and VGG16
+# 🛡️ Child Abuse Meme Detection using CLIP, ResNet50, and VGG16
 
-## 🛡️ Overview
+<p align="center">
 
-This project presents a **multimodal framework for detecting child abuse-related harmful memes** using state-of-the-art deep learning and vision-language models. Harmful memes often communicate abusive or inappropriate content by combining **images and text**, making them significantly more challenging to detect than traditional text-only or image-only content.
+![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)
+![PyTorch](https://img.shields.io/badge/PyTorch-Deep%20Learning-red.svg)
+![Transformers](https://img.shields.io/badge/HuggingFace-Transformers-yellow.svg)
+![OpenCLIP](https://img.shields.io/badge/OpenCLIP-Vision--Language-green.svg)
+![License](https://img.shields.io/badge/License-Research-lightgrey.svg)
 
-Automatic identification of such content is crucial for enhancing **online safety**, supporting **content moderation**, protecting vulnerable users, and reducing the spread of harmful material across social media platforms.
+</p>
 
-This repository investigates and compares the effectiveness of three powerful models:
+---
 
-* **CLIP (Contrastive Language–Image Pretraining)**
-* **ResNet50**
-* **VGG16**
+## 📖 Overview
 
-under various **low-data learning scenarios**, where only a limited number of labeled examples are available.
+This repository presents a **multimodal deep learning framework** for detecting **child abuse-related harmful memes** using both convolutional neural networks and vision-language models.
 
-The experiments are conducted using:
+Unlike traditional image classification tasks, harmful memes communicate abusive intent through the **interaction of images and embedded text**. Consequently, effective detection requires models capable of understanding both visual semantics and contextual relationships.
 
-* **Zero-Shot Learning**
-* **One-Shot Learning**
-* **Few-Shot Learning**
+This project investigates the effectiveness of three state-of-the-art architectures:
 
-The goal is to evaluate how well these models can recognize harmful memes with minimal supervision and analyze their suitability for real-world moderation systems.
+- 🧠 CLIP (Contrastive Language–Image Pretraining)
+- 🖼️ ResNet50
+- 📷 VGG16
+
+under low-resource learning settings including:
+
+- Zero-Shot Learning
+- One-Shot Learning
+- Few-Shot Learning
+
+The objective is to understand how these models perform when only limited labeled data is available, providing insights into practical multimodal content moderation systems.
+
+---
+
+# 📚 Table of Contents
+
+- Overview
+- Features
+- Project Pipeline
+- Models
+- Learning Settings
+- Repository Structure
+- Pre-trained Models
+- Installation
+- Running Experiments
+- Evaluation
+- Results
+- Research Motivation
+- Contact
+- Citation
+- License
 
 ---
 
 # ✨ Features
 
-* 🖼️ Multimodal harmful meme detection
-* 🤖 Comparison of CNN and Vision-Language models
-* ⚡ Zero-Shot inference using CLIP
-* 📚 One-Shot and Few-Shot learning experiments
-* 📊 Performance comparison across multiple settings
-* 🔬 Benchmark for child abuse meme detection research
-* 🚀 Easy-to-run Jupyter notebooks
+- 🔥 Multimodal harmful meme detection
+- 🧠 Vision-language learning with CLIP
+- 📷 CNN-based classification using ResNet50 and VGG16
+- ⚡ Zero-Shot, One-Shot and Few-Shot experiments
+- 📊 Comparative performance analysis
+- 🔬 Reproducible research implementation
+- 📒 Ready-to-run Jupyter notebooks
+- 🚀 Pre-trained models available
 
 ---
 
-# 🧠 Models Used
+# 🏗️ Project Pipeline
 
-| Model        | Description                                                                                                                                     |
-| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| **CLIP**     | Vision-language model capable of learning semantic relationships between images and text, enabling strong zero-shot classification performance. |
-| **ResNet50** | Deep residual convolutional neural network used as a powerful image feature extractor for supervised classification.                            |
-| **VGG16**    | Classic convolutional neural network architecture known for its simplicity and strong feature representation capabilities.                      |
+```
+Input Meme
+      │
+      ▼
+Image Preprocessing
+      │
+      ▼
+Feature Extraction
+      │
+      ├───────────────┐
+      │               │
+      ▼               ▼
+ CNN Models        CLIP Encoder
+(ResNet/VGG)     (Vision-Language)
+      │               │
+      └───────────────┘
+              │
+              ▼
+      Meme Classification
+              │
+              ▼
+ Harmful / Non-Harmful
+```
+
+---
+
+# 🧠 Models
+
+| Model | Purpose |
+|--------|---------|
+| **CLIP** | Vision-language model capable of understanding both images and text using contrastive learning. Excellent for zero-shot classification. |
+| **ResNet50** | Deep residual CNN for supervised image feature extraction and classification. |
+| **VGG16** | Deep convolutional architecture with strong visual representation capabilities. |
 
 ---
 
 # 🎯 Learning Settings
 
-The project evaluates model performance under different data availability scenarios:
+## Zero-Shot Learning
 
-### Zero-Shot Learning
+- No training on the target dataset
+- Uses CLIP text prompts
+- Direct image-text similarity prediction
 
-* No task-specific training data is used.
-* CLIP predicts classes directly using image-text similarity.
+---
 
-### One-Shot Learning
+## One-Shot Learning
 
-* Models are trained using only **one labeled example per class**.
+- One labeled example per class
+- Evaluates extreme low-resource learning
 
-### Few-Shot Learning
+---
 
-* Models learn from a small number of labeled examples, simulating realistic low-resource environments.
+## Few-Shot Learning
+
+- Small labeled training set
+- Simulates practical real-world scenarios where annotation is expensive
 
 ---
 
 # 📂 Repository Structure
 
-```text
+```
 Child-Abuse-Meme-Detection/
 │
 ├── CLIP/
@@ -76,164 +140,133 @@ Child-Abuse-Meme-Detection/
 │   └── Few-Shot/
 │
 ├── ResNet50/
+│   ├── Zero-Shot/
 │   ├── One-Shot/
 │   └── Few-Shot/
-     ── Zero-Shot/
 │
 ├── VGG16/
+│   ├── Zero-Shot/
 │   ├── One-Shot/
 │   └── Few-Shot/
-│    ── Zero-Shot/
-
-```
+│
 
 ---
 
-# 📥 Pre-trained Model Downloads
+# 📥 Pre-trained Models
 
-Due to GitHub's file size limitations, the trained model weights and checkpoints are hosted on **Google Drive**.
+GitHub restricts files larger than 100 MB. Therefore, all trained weights are hosted on Google Drive.
 
-### 📁 Google Drive
+## Available Downloads
 
-🔗 **Model Download Link**
+✔ CLIP
 
-[https://drive.google.com/drive/folders/18FIXofA1L10hrVY9xccZy4CuDgqCPrh6](https://drive.google.com/drive/folders/18FIXofA1L10hrVY9xccZy4CuDgqCPrh6)
+✔ ResNet50
 
-The folder contains:
+✔ VGG16
 
-* ✅ CLIP model weights
-* ✅ ResNet50 model weights
-* ✅ VGG16 model weights
-* ✅ Training checkpoints
-* ✅ Configuration files
+✔ Training checkpoints
 
-> **Note:** Please download the required model files before running the notebooks or evaluation scripts.
+✔ Configuration files
+
+**Google Drive**
+
+https://drive.google.com/drive/folders/18FIXofA1L10hrVY9xccZy4CuDgqCPrh6
+
+> Download the required model before running the notebooks.
 
 ---
 
-# 🚀 Getting Started
-
-## 1. Clone the Repository
+# 🚀 Installation
 
 ```bash
 git clone https://github.com/yourusername/Child-Abuse-Meme-Detection.git
 
 cd Child-Abuse-Meme-Detection
-```
 
----
-
-## 2. Install Dependencies
-
-```bash
 pip install -r requirements.txt
 ```
 
 ---
 
-## 3. Download Pre-trained Models
+# ▶ Running Experiments
 
-Download the required model weights from the Google Drive folder and place them inside the appropriate model directories.
+Run the corresponding notebook depending on the experiment.
 
-Example:
-
-```text
-models/
-├── CLIP/
-├── ResNet50/
-└── VGG16/
-```
+| Model | Zero-Shot | One-Shot | Few-Shot |
+|--------|-----------|-----------|-----------|
+| CLIP | ✅ | ✅ | ✅ |
+| ResNet50 | ✅ | ✅ | ✅ |
+| VGG16 | ✅ | ✅ | ✅ |
 
 ---
 
-## 4. Run Experiments
+# 📈 Evaluation Metrics
 
-Open the corresponding notebook for the desired model and learning setting.
+Performance is evaluated using:
 
-Examples:
-
-* CLIP Zero-Shot
-* CLIP One-Shot
-* CLIP Few-Shot
-* ResNet50 One-Shot
-* ResNet50 Few-Shot
-* VGG16 One-Shot
-* VGG16 Few-Shot
+- Accuracy
+- Precision
+- Recall
+- F1 Score
+- Confusion Matrix
 
 ---
 
-# 📊 Project Objectives
 
-This project aims to:
 
-* Detect child abuse-related harmful memes using deep learning techniques.
-* Compare CNN-based and vision-language models for multimodal content understanding.
-* Evaluate model performance under Zero-Shot, One-Shot, and Few-Shot learning scenarios.
-* Analyze the impact of limited labeled data on harmful meme detection.
-* Explore the effectiveness of multimodal representations for online content moderation.
-* Provide a reproducible benchmark for future research on harmful meme detection.
+# 🔬 Research Motivation
 
----
+Harmful memes remain challenging to detect because their meaning emerges from the interaction between textual and visual information.
 
-# 📈 Evaluation
+CNNs excel at extracting visual features but cannot naturally understand embedded textual context. Vision-language models such as CLIP bridge this gap by jointly learning representations of images and language.
 
-Model performance can be evaluated using common classification metrics such as:
-
-* Accuracy
-* Precision
-* Recall
-* F1-Score
-* Confusion Matrix
-
-The repository includes notebooks for training, testing, and performance analysis.
+This project compares both paradigms under limited-data settings to understand their effectiveness for automated content moderation.
 
 ---
 
 # 💻 Requirements
 
-Typical dependencies include:
-
-```text
-Python 3.9+
-PyTorch
-Torchvision
-Transformers
-OpenCLIP
-NumPy
-Pandas
-Matplotlib
-Scikit-learn
-Jupyter Notebook
-```
-
-Install all dependencies using:
-
-```bash
-pip install -r requirements.txt
-```
-
----
-
-# 🔬 Research Motivation
-
-Detecting child abuse-related memes remains a challenging task because harmful intent often emerges from the interaction between visual content and embedded text. Traditional image classification models may fail to capture this multimodal context, while vision-language models such as CLIP can better understand semantic relationships across modalities. This project investigates the strengths and limitations of both approaches under low-resource learning conditions.
+- Python 3.9+
+- PyTorch
+- Torchvision
+- Transformers
+- OpenCLIP
+- NumPy
+- Pandas
+- Matplotlib
+- Scikit-learn
+- Jupyter Notebook
 
 ---
 
 # 📬 Contact
 
-If you need access to additional resources or have any questions regarding the project, feel free to contact:
-
 **Palak Bhardwaj**
 
-📧 **[bhardwahpalak777@gmail.com](mailto:bhardwahpalak777@gmail.com)**
+📧 bhardwahpalak777@gmail.com
+
+Feel free to open an Issue or contact me regarding the project.
 
 ---
 
-# 📄 License
+# 📖 Citation
 
-This project is intended for **research and educational purposes only**. The dataset and trained models should be used responsibly and in accordance with applicable ethical guidelines and data usage policies.
+If you use this repository in your research, please cite it appropriately.
+
+```bibtex
+@misc{childabusememe2026,
+  author = {Palak Bhardwaj},
+  title = {Child Abuse Meme Detection using CLIP, ResNet50 and VGG16},
+  year = {2026},
+  note = {GitHub Repository}
+}
+```
 
 ---
 
-⭐ **If you find this project useful, consider giving the repository a star to support future research and development.**
+
+---
+
+## ⭐ Support
+
+If you found this repository helpful, please consider **starring ⭐ the repository**. It helps increase visibility and supports future research.
